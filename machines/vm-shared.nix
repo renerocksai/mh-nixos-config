@@ -4,7 +4,7 @@ let
   # Turn this to true to use gnome instead of i3. This is a bit
   # of a hack, I just flip it on as I need to develop gnome stuff
   # for now.
-  linuxGnome = true;
+  linuxGnome = false;
 in {
   # Be careful updating this.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -43,7 +43,7 @@ in {
   networking.hostName = "dev";
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "Europ/Vienna";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -99,6 +99,15 @@ in {
     windowManager = {
       i3.enable = true;
     };
+    windowManager.i3.package = pkgs.i3-gaps;
+    windowManager.i3.extraPackages = with pkgs; [
+      dmenu
+      i3status
+      i3lock
+      i3blocks
+      # unstable.rofi unstable.rofi-calc unstable.rofi-file-browser unstable.rofi-power-menu
+      rofi rofi-calc rofi-file-browser rofi-power-menu
+    ];
   };
 
   # Enable tailscale. We manually authenticate when we want with
@@ -120,6 +129,10 @@ in {
     ];
   };
 
+  # fonts.fonts = with pkgs; [
+  #   (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  # ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -140,6 +153,8 @@ in {
     # You can test if you don't need this by deleting this and seeing
     # if the clipboard sill works.
     gtkmm3
+
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -158,6 +173,8 @@ in {
   # Enable flatpak. I don't use any flatpak apps but I do sometimes
   # test them so I keep this enabled.
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Disable the firewall since we're in a VM and we want to make it
   # easy to visit stuff in here. We only use NAT networking anyways.
