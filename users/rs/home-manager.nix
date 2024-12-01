@@ -77,6 +77,9 @@ in {
     pkgs.bat
     pkgs.neofetch
 
+    pkgs.python312Full
+    pkgs.python312Packages.python-lsp-server
+
     pkgs.lazyjj
 
     pkgs.binutils pkgs.gnutar pkgs.gzip pkgs.gnumake pkgs.gcc pkgs.binutils pkgs.coreutils pkgs.gawk pkgs.gnused pkgs.patchelf pkgs.findutils
@@ -92,11 +95,11 @@ in {
     (pkgs.lua.withPackages(ps: with ps; [ busted luafilesystem luacheck ]))
     pkgs.sumneko-lua-language-server
 
-    pkgs.zip 
-    pkgs.unzip 
-    pkgs.p7zip 
+    pkgs.zip
+    pkgs.unzip
+    pkgs.p7zip
     # pkgs.rar -- not available for aarch64-linux
-    pkgs.xz 
+    pkgs.xz
     pkgs.unrar
 
     pkgs.ffmpeg
@@ -120,7 +123,7 @@ in {
     # pkgs.gtk3
     # pkgs.libGL
 
-    pkgs.google-chrome
+    # pkgs.google-chrome -- doesn't work: qemo-x86_64: .... ld-linux-aarch64.so.1: Invalid ELF image for this architecture
 
 
     # texlive.combined.scheme-full
