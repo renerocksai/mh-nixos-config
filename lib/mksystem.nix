@@ -46,6 +46,7 @@ in systemFunc rec {
         isWSL = isWSL;
         inputs = inputs;
       };
+      home-manager.backupFileExtension = "backup";
     }
 
     # We expose some extra arguments so that our modules can parameterize

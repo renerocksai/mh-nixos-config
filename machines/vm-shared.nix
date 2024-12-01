@@ -73,8 +73,8 @@ in {
   services.xserver = if linuxGnome then {
     enable = true;
     xkb.layout = "us";
+    gdm.enable = true;
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
   } else {
     enable = true;
     xkb.layout = "us";
@@ -85,16 +85,12 @@ in {
       wallpaper.mode = "fill";
     };
 
-    displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = true;
-
+    displayManager.lightdm.enable = true;
       # AARCH64: For now, on Apple Silicon, we must manually set the
       # display resolution. This is a known issue with VMware Fusion.
-      sessionCommands = ''
+    displayManager.sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 200 40
       '';
-    };
 
     windowManager = {
       i3.enable = true;
@@ -109,6 +105,9 @@ in {
       rofi rofi-calc rofi-file-browser rofi-power-menu
     ];
   };
+
+  # rene TODO correct value for gnome
+  services.displayManager.defaultSession = if linuxGnome then "gnome" else "none+i3";
 
   # Enable tailscale. We manually authenticate when we want with
   # "sudo tailscale up". If you don't use tailscale, you should comment
@@ -175,6 +174,7 @@ in {
   services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default="*";
 
   # Disable the firewall since we're in a VM and we want to make it
   # easy to visit stuff in here. We only use NAT networking anyways.

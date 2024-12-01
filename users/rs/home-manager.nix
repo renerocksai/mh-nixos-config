@@ -24,9 +24,6 @@ let
 in {
 
     home.stateVersion = "23.05";
-    xdg.enable = true;
-    # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    # xdg.portal.enable = true;
 
   #---------------------------------------------------------------------
   # Packages
@@ -65,7 +62,6 @@ in {
     pkgs.valgrind
 
     pkgs.wget
-    # pkgs.kitty
     pkgs.neovim
     pkgs.git
     pkgs.git-crypt
@@ -237,7 +233,7 @@ in {
 
     programs.zsh = {
       enable = true;
-	  enableAutosuggestions = true;
+	  autosuggestion.enable = true;
 	  oh-my-zsh = {
 	      enable = true;
 	      plugins = [
