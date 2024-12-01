@@ -85,6 +85,11 @@ in {
     pkgs.binutils pkgs.gnutar pkgs.gzip pkgs.gnumake pkgs.gcc pkgs.binutils pkgs.coreutils pkgs.gawk pkgs.gnused pkgs.patchelf pkgs.findutils
     pkgs.elfutils pkgs.colordiff pkgs.diff-so-fancy
     pkgs.ninja pkgs.cmake pkgs.pkg-config pkgs.cloc
+
+    pkgs.gtk4
+    pkgs.adwaita-icon-theme
+    pkgs.glib
+
     # ghdl gtkwave
     # pkgs.gnome3.adwaita-icon-theme
     # pkgs.breeze-icons
