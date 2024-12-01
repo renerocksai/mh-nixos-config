@@ -75,30 +75,37 @@ in {
     pkgs.unixtools.killall
     pkgs.ripgrep
     pkgs.bat
-    # pkgs.neofetch
+    pkgs.neofetch
 
-    # pkgs.binutils pkgs.gnutar pkgs.gzip pkgs.gnumake pkgs.gcc pkgs.binutils pkgs.coreutils pkgs.gawk pkgs.gnused pkgs.patchelf pkgs.findutils
-    # pkgs.elfutils pkgs.colordiff pkgs.diff-so-fancy
-    # pkgs.ninja pkgs.cmake pkgs.pkg-config pkgs.cloc
+    pkgs.lazyjj
+
+    pkgs.binutils pkgs.gnutar pkgs.gzip pkgs.gnumake pkgs.gcc pkgs.binutils pkgs.coreutils pkgs.gawk pkgs.gnused pkgs.patchelf pkgs.findutils
+    pkgs.elfutils pkgs.colordiff pkgs.diff-so-fancy
+    pkgs.ninja pkgs.cmake pkgs.pkg-config pkgs.cloc
     # ghdl gtkwave
     # pkgs.gnome3.adwaita-icon-theme
     # pkgs.breeze-icons
     pkgs.starship
 
-    # pkgs.stylua
-    # (pkgs.lua.withPackages(ps: with ps; [ busted luafilesystem luacheck ]))
-    # pkgs.sumneko-lua-language-server
 
-    # pkgs.zip pkgs.unzip pkgs.p7zip pkgs.rar pkgs.xz pkgs.unrar
+    pkgs.stylua
+    (pkgs.lua.withPackages(ps: with ps; [ busted luafilesystem luacheck ]))
+    pkgs.sumneko-lua-language-server
 
-    # pkgs.ffmpeg
+    pkgs.zip 
+    pkgs.unzip 
+    pkgs.p7zip 
+    # pkgs.rar -- not available for aarch64-linux
+    pkgs.xz 
+    pkgs.unrar
+
+    pkgs.ffmpeg
     # pkgs.flameshot
     # pkgs.gimp
-    # pkgs.imagemagick
-    # pkgs.mediainfo
+    pkgs.imagemagick
+    pkgs.mediainfo
     # pkgs.obs-studio kdenlive krita mypaint kicad freecad
 
-    # pkgs.jq
     # nodejs nodePackages.yarn
     # pkgs.nodePackages.markdownlint-cli    # this
 
@@ -113,7 +120,7 @@ in {
     # pkgs.gtk3
     # pkgs.libGL
 
-    # pkgs.google-chrome
+    pkgs.google-chrome
 
 
     # texlive.combined.scheme-full
@@ -125,13 +132,13 @@ in {
     # zig zls
     # gnome.zenity # for slides to launch outside of nix-shell
 
-    # pkgs.pavucontrol pkgs.pasystray
+    pkgs.pavucontrol pkgs.pasystray
     pkgs.xorg.xhost
     # pkgs.ueberzug  # for telekasten img preview, xhost +
 
     # pkgs.youtube-dl vlc mpv haruna mplayer
     # ghostscript okular
-    # pkgs.feh
+    pkgs.feh
 
     # file manager(s)
     # dolphin : can't get thumbnails to work
@@ -139,7 +146,7 @@ in {
     # pkgs.xfce.thunar pkgs.xfce.tumbler pkgs.ffmpegthumbnailer
     # pkgs.gnome.nautilus pkgs.gnome.sushi
 
-    # pkgs.openssl
+    pkgs.openssl
 
     # furhat SDK
     # appimage-run
@@ -152,7 +159,7 @@ in {
 
     # signal-desktop
 
-    # pkgs.cmus
+    pkgs.cmus
 
 
     # pkgs.wineWowPackages.stable

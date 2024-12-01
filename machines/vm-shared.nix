@@ -139,7 +139,8 @@ in {
     gnumake
     killall
     niv
-    rxvt_unicode
+    # rxvt_unicode # NixOS 24.05
+    rxvt-unicode-unwrapped
     xclip
 
     # For hypervisors that support auto-resizing, this script forces it.
